@@ -195,7 +195,7 @@ class FineManager {
 }
 
 // ---------- Main ----------
-public class Main {
+public class main {
     static Scanner sc = new Scanner(System.in);
 
     static void search(List<LibraryItem> items, FinePolicy p, FineManager m) {
