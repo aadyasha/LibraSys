@@ -1,13 +1,12 @@
 import java.util.*;
 
-// ---------- Policy (Fine System) ----------
-interface FinePolicy {
-    int calculate(int days);   // calculate fine based on days
-}
 
-// Basic fine = per day * rate
+interface FinePolicy {
+    int calculate(int days);  
+
+
 class SimpleFine implements FinePolicy {
-    int rate;
+    int rate; // Basic fine = per day * rate
 
     SimpleFine(int r) {
         rate = r;
@@ -20,8 +19,8 @@ class SimpleFine implements FinePolicy {
 
 // ---------- Core Item ----------
 abstract class LibraryItem {
-    private static int idGen = 1000;  // generates IDs starting at 1000
-    private int id = idGen++;         // auto assign ID
+    private static int idGen = 1000;  
+    private int id = idGen++;         
 
     String title, author;
     boolean available = true;
@@ -39,7 +38,7 @@ abstract class LibraryItem {
     boolean isAvailable() { return available; }
     int getBorrowCount() { return borrowCount; }
 
-    // borrow process
+    // borrowing
     void borrow(int days, FinePolicy p, FineManager m) {
         if (!available) {
             notAvailableMsg();
